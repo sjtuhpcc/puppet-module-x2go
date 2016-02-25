@@ -19,11 +19,9 @@ This module manages the x2go.  Currently the module only supports x2goserver.
 The server components make the following changes:
 
 * Require EPEL (RedHat based systems only)
-* Install yum package groups necessary to get a desktop environment (RedHat based systems only)
 * Install x2goserver and x2goserver-xsession
 * Add sudo rule to keep QT_GRAPHICSYSTEM environment variable
 * Start x2gocleansessions service
-* Disable Network Manager (EL6 only)
 
 ## Usage
 
@@ -50,28 +48,13 @@ Default values in Hiera format:
 $::osfamily == 'RedHat'
 
     x2go::server: true
-    x2go::server_desktop_packages:
-      - 'General Purpose Desktop'
-      - 'Desktop'
     x2go::server_package_name: 'x2goserver'
     x2go::server_xsession_package_name: 'x2goserver-xsession'
     x2go::x2gocleansessions_service_name: 'x2gocleansessions'
 
-$::osfamily == 'RedHat' and $::operatingsystemmajrelease == '6'
-
-    x2go::disable_network_manager: true
-
-$::osfamily == 'RedHat' and $::operatingsystemmajrelease == '7'
-
-    x2go::disable_network_manager: false
-
 #####`server`
 
 Manage x2goserver.  Default is `true`
-
-#####`server_desktop_packages`
-
-Packages necessary to install a desktop environment.  Default is OS dependent.
 
 #####`server_package_name`
 
@@ -84,10 +67,6 @@ x2goserver-xsession package name.  Default is `x2goserver-xsession`
 #####`x2gocleansessions_service_name`
 
 x2gocleansessions service name.  Default is `x2gocleansessions`
-
-#####`disable_network_manager`
-
-Boolean that determines if NetworkManager should be turned off and disabled.  Default is OS dependent.
 
 ### Private classes
 

@@ -10,10 +10,4 @@ shared_examples 'x2go::server::service' do |facts|
     })
   end
 
-  if facts[:osfamily] == 'RedHat' && facts[:operatingsystemmajrelease] < '7'
-    it { is_expected.to contain_service('NetworkManager').with_ensure('stopped').with_enable('false') }
-  else
-    it { is_expected.not_to contain_service('NetworkManager') }
-  end
-
 end

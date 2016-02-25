@@ -5,10 +5,6 @@ class x2go::server::install {
     'RedHat': {
       include ::epel
       $_package_require = Yumrepo['epel']
-
-      yum::group { $x2go::server_desktop_packages:
-        ensure => 'present',
-      }
     }
     default: {
       $_package_require = undef

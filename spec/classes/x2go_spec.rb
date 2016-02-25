@@ -4,7 +4,17 @@ describe 'x2go' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
-        facts
+        if facts[:osfamily] == "RedHat"
+          if facts[:operatingsystemmajrelease] == '6'
+            facts.merge({:sudoversion => '1.8.6p3'})
+          elsif facts[:operatingsysemmajrelease] == '7'
+            facts.merge({:sudoversion => '1.8.6p7'})
+          else
+            facts
+          end
+        else
+          facts
+        end
       end
 
       it { is_expected.to compile.with_all_deps }

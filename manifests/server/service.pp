@@ -9,13 +9,4 @@ class x2go::server::service {
     hasrestart => true,
   }
 
-  if $x2go::disable_network_manager {
-    service { 'NetworkManager':
-      ensure     => 'stopped',
-      enable     => false,
-      hasstatus  => true,
-      hasrestart => true,
-    }
-  }
-
 }

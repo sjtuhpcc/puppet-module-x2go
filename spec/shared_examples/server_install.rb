@@ -4,9 +4,6 @@ shared_examples 'x2go::server::install' do |facts|
     let(:package_require) { 'Yumrepo[epel]' }
 
     it { is_expected.to contain_class('epel') }
-
-    it { is_expected.to contain_yum__group('General Purpose Desktop').with_ensure('present') }
-    it { is_expected.to contain_yum__group('Desktop').with_ensure('present') }
   end
 
   it do
