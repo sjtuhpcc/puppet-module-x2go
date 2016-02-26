@@ -7,7 +7,7 @@ describe 'x2go' do
         if facts[:osfamily] == "RedHat"
           if facts[:operatingsystemmajrelease] == '6'
             facts.merge({:sudoversion => '1.8.6p3'})
-          elsif facts[:operatingsysemmajrelease] == '7'
+          elsif facts[:operatingsystemmajrelease] == '7'
             facts.merge({:sudoversion => '1.8.6p7'})
           else
             facts

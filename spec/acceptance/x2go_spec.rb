@@ -8,7 +8,7 @@ describe 'x2go class' do
       EOS
 
       apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes => true)
+      apply_manifest(pp, :catch_changes => false)
     end
 
     describe package('x2goserver') do
