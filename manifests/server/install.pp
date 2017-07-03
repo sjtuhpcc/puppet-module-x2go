@@ -3,7 +3,6 @@ class x2go::server::install {
 
   case $::osfamily {
     'RedHat': {
-      include ::epel
       $_package_require = Yumrepo['epel']
     }
     default: {

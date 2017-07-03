@@ -2,8 +2,6 @@ shared_examples 'x2go::server::install' do |facts|
 
   if facts[:osfamily] == 'RedHat'
     let(:package_require) { 'Yumrepo[epel]' }
-
-    it { is_expected.to contain_class('epel') }
   end
 
   it do

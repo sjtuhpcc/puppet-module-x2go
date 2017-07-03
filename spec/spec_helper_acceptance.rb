@@ -16,7 +16,6 @@ RSpec.configure do |c|
 
     hosts.each do |host|
       on host, puppet('module', 'install', 'puppetlabs/stdlib'), { :acceptable_exit_codes => [0,1] }
-      on host, puppet('module', 'install', 'stahnma-epel'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'saz-sudo'), { :acceptable_exit_codes => [0,1] }
     end
   end
